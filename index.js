@@ -4,6 +4,7 @@ const path = require("path");
 require("dotenv").config({ path: "./config/.env" });
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 //connecting to database
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 app.use(cors());
 app.use(express.json());
 app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
 app.use(notFound);
 app.use(errorHandler);
 

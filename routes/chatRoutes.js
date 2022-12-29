@@ -11,8 +11,7 @@ const {
 
 const router = express.Router();
 
-router.route("/").post(protect, accessChat);
-router.route("/").get(protect, fetchChats);
+router.route("/").post(protect, accessChat).get(protect, fetchChats);
 router.route("/group").post(protect, createGroupChat);
 router.route("/rename").patch(protect, renameGroup);
 router.route("/groupremove").patch(protect, removeFromGroup);
